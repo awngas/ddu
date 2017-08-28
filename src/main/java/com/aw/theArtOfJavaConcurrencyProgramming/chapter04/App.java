@@ -49,7 +49,7 @@ class GetPostTest {
             conn.setRequestProperty("accept", "*/*");
             conn.setRequestProperty("connection", "Keep-Alive");
             conn.setRequestProperty("user-agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36");
-            //postÉèÖÃÈçÏÂÁ½ÐÐ
+            //postè®¾ç½®å¦‚ä¸‹ä¸¤è¡Œ
             conn.setDoOutput(true);
             conn.setDoInput(true);
             PrintWriter out = new PrintWriter(conn.getOutputStream());
@@ -70,10 +70,10 @@ class GetPostTest {
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("hello world");
-//        String sendRecvGet =GetPostTest.sendGet("http://localhost:9090/","param=xxxxxÎûÎûÎû");
+//        String sendRecvGet =GetPostTest.sendGet("http://localhost:9090/","param=xxxxxå˜»å˜»å˜»");
         String sendRecvGet =GetPostTest.sendGet("http://localhost:9090/","index.html");
         System.out.println(sendRecvGet);
-//        String sendRecvPost =GetPostTest.sendPost("http://localhost:8989/testServletEncoding/encodingTest","param=¾ÍÊÇÎÒ");
+//        String sendRecvPost =GetPostTest.sendPost("http://localhost:8989/testServletEncoding/encodingTest","param=å°±æ˜¯æˆ‘");
 //        System.out.println(sendRecvPost);
     }
 }

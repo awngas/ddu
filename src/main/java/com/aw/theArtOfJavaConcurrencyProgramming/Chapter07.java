@@ -5,40 +5,40 @@ package com.aw.theArtOfJavaConcurrencyProgramming;
  */
 public class Chapter07 {
     public static void main(String[] args) {
-        System.out.println("µÚ7ÕÂ¡¡JavaÖĞµÄ13¸öÔ­×Ó²Ù×÷Àà");
+        System.out.println("ç¬¬7ç« ã€€Javaä¸­çš„13ä¸ªåŸå­æ“ä½œç±»");
     }
 }
 /**
- AtomicBoolean£ºÔ­×Ó¸üĞÂ²¼¶ûÀàĞÍ¡£
- AtomicInteger£ºÔ­×Ó¸üĞÂÕûĞÍ¡£
- AtomicLong£ºÔ­×Ó¸üĞÂ³¤ÕûĞÍ¡£
+ AtomicBooleanï¼šåŸå­æ›´æ–°å¸ƒå°”ç±»å‹ã€‚
+ AtomicIntegerï¼šåŸå­æ›´æ–°æ•´å‹ã€‚
+ AtomicLongï¼šåŸå­æ›´æ–°é•¿æ•´å‹ã€‚
 
- AtomicInteger³£ÓÃ·½·¨
- addAndGet(int) Ô­×Ó·½Ê½½«ÊäÈëÖµÓëvalue³ÉÔ±Ïà¼Ó,·µ»Ø½á¹û
- compareAndSet(int,int) ÈôÊäÈëÖµµÈÓÚÔ¤ÆÚÖµ,ÔòÒÔÔ­×Ó·½Ê½½«¸ÃÖµÉèÖÃÎªÊäÈëµÄÖµ
- getAndIncrement() Ô­×Ó·½Ê½½«µ±Ç°Öµ¼Ó1,·µ»Ø×ÔÔöÇ°µÄÖµ
- lazySet(int) ×îÖÕ»á½«valueÉèÖÃ³ÉÊäÈëÖµ,Ê¹ÓÃlazySetÉèÖÃÖµºó£¬¿ÉÄÜµ¼ÖÂÆäËû
- Ïß³ÌÔÚÖ®ºóµÄÒ»Ğ¡¶ÎÊ±¼äÄÚ»¹ÊÇ¿ÉÒÔ¶Áµ½¾ÉµÄÖµ
- getAndSet(int) ÒÔÔ­×Ó·½Ê½ÉèÖÃÎªÊäÈëÖµ,²¢·µ»Ø¾ÉÖµ
+ AtomicIntegerå¸¸ç”¨æ–¹æ³•
+ addAndGet(int) åŸå­æ–¹å¼å°†è¾“å…¥å€¼ä¸valueæˆå‘˜ç›¸åŠ ,è¿”å›ç»“æœ
+ compareAndSet(int,int) è‹¥è¾“å…¥å€¼ç­‰äºé¢„æœŸå€¼,åˆ™ä»¥åŸå­æ–¹å¼å°†è¯¥å€¼è®¾ç½®ä¸ºè¾“å…¥çš„å€¼
+ getAndIncrement() åŸå­æ–¹å¼å°†å½“å‰å€¼åŠ 1,è¿”å›è‡ªå¢å‰çš„å€¼
+ lazySet(int) æœ€ç»ˆä¼šå°†valueè®¾ç½®æˆè¾“å…¥å€¼,ä½¿ç”¨lazySetè®¾ç½®å€¼åï¼Œå¯èƒ½å¯¼è‡´å…¶ä»–
+ çº¿ç¨‹åœ¨ä¹‹åçš„ä¸€å°æ®µæ—¶é—´å†…è¿˜æ˜¯å¯ä»¥è¯»åˆ°æ—§çš„å€¼
+ getAndSet(int) ä»¥åŸå­æ–¹å¼è®¾ç½®ä¸ºè¾“å…¥å€¼,å¹¶è¿”å›æ—§å€¼
 
- ÄÚ²¿Ô­×Ó²Ù×÷¶¼ÓÉUnsafeÊµÏÖ
- Èç¹ûµ±Ç°ÊıÖµÊÇexpected£¬ÔòÔ­×Ó²Ù×÷,½«Java±äÁ¿¸üĞÂ³Éx
+ å†…éƒ¨åŸå­æ“ä½œéƒ½ç”±Unsafeå®ç°
+ å¦‚æœå½“å‰æ•°å€¼æ˜¯expectedï¼Œåˆ™åŸå­æ“ä½œ,å°†Javaå˜é‡æ›´æ–°æˆx
  compareAndSwapObject,compareAndSwapInt,compareAndSwapLong
- 7.2¡¡Ô­×Ó¸üĞÂÊı×é
- ¡¤AtomicIntegerArray£ºÔ­×Ó¸üĞÂÕûĞÍÊı×éÀïµÄÔªËØ¡£
- ¡¤AtomicLongArray£ºÔ­×Ó¸üĞÂ³¤ÕûĞÍÊı×éÀïµÄÔªËØ¡£
- ¡¤AtomicReferenceArray£ºÔ­×Ó¸üĞÂÒıÓÃÀàĞÍÊı×éÀïµÄÔªËØ¡£
- ¡¤AtomicIntegerArrayÀàÖ÷ÒªÊÇÌá¹©Ô­×ÓµÄ·½Ê½¸üĞÂÊı×éÀïµÄÕûĞÍ£¬Æä³£ÓÃ·½·¨ÈçÏÂ¡£
- 7.3¡¡Ô­×Ó¸üĞÂÒıÓÃÀàĞÍ
- ¡¤AtomicReference£ºÔ­×Ó¸üĞÂÒıÓÃÀàĞÍ¡£
- ¡¤AtomicReferenceFieldUpdater£ºÔ­×Ó¸üĞÂÒıÓÃÀàĞÍÀïµÄ×Ö¶Î¡£
- ¡¤AtomicMarkableReference£ºÔ­×Ó¸üĞÂ´øÓĞ±ê¼ÇÎ»µÄÒıÓÃÀàĞÍ¡£¿ÉÒÔÔ­×Ó¸üĞÂÒ»¸ö²¼¶ûÀà
- ĞÍµÄ±ê¼ÇÎ»ºÍÒıÓÃÀàĞÍ¡£¹¹Ôì·½·¨ÊÇAtomicMarkableReference£¨V initialRef£¬boolean
- initialMark£©¡£
- 7.4¡¡Ô­×Ó¸üĞÂ×Ö¶ÎÀà
- ¡¤AtomicIntegerFieldUpdater£ºÔ­×Ó¸üĞÂÕûĞÍµÄ×Ö¶ÎµÄ¸üĞÂÆ÷¡£
- ¡¤AtomicLongFieldUpdater£ºÔ­×Ó¸üĞÂ³¤ÕûĞÍ×Ö¶ÎµÄ¸üĞÂÆ÷¡£
- ¡¤AtomicStampedReference£ºÔ­×Ó¸üĞÂ´øÓĞ°æ±¾ºÅµÄÒıÓÃÀàĞÍ¡£¸ÃÀà½«ÕûÊıÖµÓëÒıÓÃ¹ØÁªÆğ
- À´£¬¿ÉÓÃÓÚÔ­×ÓµÄ¸üĞÂÊı¾İºÍÊı¾İµÄ°æ±¾ºÅ£¬¿ÉÒÔ½â¾öÊ¹ÓÃCAS½øĞĞÔ­×Ó¸üĞÂÊ±¿ÉÄÜ³öÏÖµÄ
- ABAÎÊÌâ¡£
+ 7.2ã€€åŸå­æ›´æ–°æ•°ç»„
+ Â·AtomicIntegerArrayï¼šåŸå­æ›´æ–°æ•´å‹æ•°ç»„é‡Œçš„å…ƒç´ ã€‚
+ Â·AtomicLongArrayï¼šåŸå­æ›´æ–°é•¿æ•´å‹æ•°ç»„é‡Œçš„å…ƒç´ ã€‚
+ Â·AtomicReferenceArrayï¼šåŸå­æ›´æ–°å¼•ç”¨ç±»å‹æ•°ç»„é‡Œçš„å…ƒç´ ã€‚
+ Â·AtomicIntegerArrayç±»ä¸»è¦æ˜¯æä¾›åŸå­çš„æ–¹å¼æ›´æ–°æ•°ç»„é‡Œçš„æ•´å‹ï¼Œå…¶å¸¸ç”¨æ–¹æ³•å¦‚ä¸‹ã€‚
+ 7.3ã€€åŸå­æ›´æ–°å¼•ç”¨ç±»å‹
+ Â·AtomicReferenceï¼šåŸå­æ›´æ–°å¼•ç”¨ç±»å‹ã€‚
+ Â·AtomicReferenceFieldUpdaterï¼šåŸå­æ›´æ–°å¼•ç”¨ç±»å‹é‡Œçš„å­—æ®µã€‚
+ Â·AtomicMarkableReferenceï¼šåŸå­æ›´æ–°å¸¦æœ‰æ ‡è®°ä½çš„å¼•ç”¨ç±»å‹ã€‚å¯ä»¥åŸå­æ›´æ–°ä¸€ä¸ªå¸ƒå°”ç±»
+ å‹çš„æ ‡è®°ä½å’Œå¼•ç”¨ç±»å‹ã€‚æ„é€ æ–¹æ³•æ˜¯AtomicMarkableReferenceï¼ˆV initialRefï¼Œboolean
+ initialMarkï¼‰ã€‚
+ 7.4ã€€åŸå­æ›´æ–°å­—æ®µç±»
+ Â·AtomicIntegerFieldUpdaterï¼šåŸå­æ›´æ–°æ•´å‹çš„å­—æ®µçš„æ›´æ–°å™¨ã€‚
+ Â·AtomicLongFieldUpdaterï¼šåŸå­æ›´æ–°é•¿æ•´å‹å­—æ®µçš„æ›´æ–°å™¨ã€‚
+ Â·AtomicStampedReferenceï¼šåŸå­æ›´æ–°å¸¦æœ‰ç‰ˆæœ¬å·çš„å¼•ç”¨ç±»å‹ã€‚è¯¥ç±»å°†æ•´æ•°å€¼ä¸å¼•ç”¨å…³è”èµ·
+ æ¥ï¼Œå¯ç”¨äºåŸå­çš„æ›´æ–°æ•°æ®å’Œæ•°æ®çš„ç‰ˆæœ¬å·ï¼Œå¯ä»¥è§£å†³ä½¿ç”¨CASè¿›è¡ŒåŸå­æ›´æ–°æ—¶å¯èƒ½å‡ºç°çš„
+ ABAé—®é¢˜ã€‚
  */

@@ -2,19 +2,19 @@ package com.aw.theArtOfJavaConcurrencyProgramming;
 
 public class Chapter11 {
     public static void main(String[] args) {
-        System.out.println("µÚ11ÕÂ¡¡Java²¢·¢±à³ÌÊµ¼ù");
+        System.out.println("ç¬¬11ç« ã€€Javaå¹¶å‘ç¼–ç¨‹å®è·µ");
     }
 }
 /**
- ³£ÓÃÃüÁî:
- top => 1 ²é¿´Ã¿¸öCPUµÄĞÔÄÜÊı¾İ
- top => H ²é¿´Ã¿¸öÏß³ÌµÄĞÔÄÜĞÅÏ¢
- ±£´æÏß³Ìdump
- sudo -u admin jstack Ïß³ÌPid > /1.dump
- dumpÖĞµÄÏß³ÌIDÊÇÊ®Áù½øÖÆµÄ
- printf "%x\n" 31558 Ê®½øÖÆ×ª16½øÖÆ
- cat /proc/net/dev ²é¿´ÍøÂçÁ÷Á¿
- cat /proc/loadavg ²é¿´ÏµÍ³Æ½¾ù¸ºÔØ
- cat /proc/meminfo ²é¿´ÏµÍ³ÄÚ´æÇé¿ö
- cat /proc/stat ²é¿´cpuµÄÀûÓÃÂÊ
+ å¸¸ç”¨å‘½ä»¤:
+ top => 1 æŸ¥çœ‹æ¯ä¸ªCPUçš„æ€§èƒ½æ•°æ®
+ top => H æŸ¥çœ‹æ¯ä¸ªçº¿ç¨‹çš„æ€§èƒ½ä¿¡æ¯
+ ä¿å­˜çº¿ç¨‹dump
+ sudo -u admin jstack çº¿ç¨‹Pid > /1.dump
+ dumpä¸­çš„çº¿ç¨‹IDæ˜¯åå…­è¿›åˆ¶çš„
+ printf "%x\n" 31558 åè¿›åˆ¶è½¬16è¿›åˆ¶
+ cat /proc/net/dev æŸ¥çœ‹ç½‘ç»œæµé‡
+ cat /proc/loadavg æŸ¥çœ‹ç³»ç»Ÿå¹³å‡è´Ÿè½½
+ cat /proc/meminfo æŸ¥çœ‹ç³»ç»Ÿå†…å­˜æƒ…å†µ
+ cat /proc/stat æŸ¥çœ‹cpuçš„åˆ©ç”¨ç‡
  */

@@ -7,10 +7,10 @@ import java.util.concurrent.Future;
 import java.util.concurrent.RecursiveTask;
 
 /**
- * Ê¹ÓÃfork/join¿ò¼Ü¼ÆËã1+2+3+4
+ * ä½¿ç”¨fork/joinæ¡†æ¶è®¡ç®—1+2+3+4
  */
 public class CountTask extends RecursiveTask<Integer> {
-    private static final int THRESHOLD = 2; // ãĞÖµ
+    private static final int THRESHOLD = 2; // é˜ˆå€¼
     private int start;
     private int end;
 
@@ -22,24 +22,24 @@ public class CountTask extends RecursiveTask<Integer> {
     @Override
     protected Integer compute() {
         int sum = 0;
-        // Èç¹ûÈÎÎñ×ã¹»Ğ¡¾Í¼ÆËãÈÎÎñ
+        // å¦‚æœä»»åŠ¡è¶³å¤Ÿå°å°±è®¡ç®—ä»»åŠ¡
         boolean canCompute = (end - start) <= THRESHOLD;
         if (canCompute) {
             for (int i = start; i <= end; i++) {
                 sum += i;
             }
         } else {
-            // Èç¹ûÈÎÎñ´óÓÚãĞÖµ£¬¾Í·ÖÁÑ³ÉÁ½¸ö×ÓÈÎÎñ¼ÆËã
+            // å¦‚æœä»»åŠ¡å¤§äºé˜ˆå€¼ï¼Œå°±åˆ†è£‚æˆä¸¤ä¸ªå­ä»»åŠ¡è®¡ç®—
             int middle = (start + end) / 2;
             CountTask leftTask = new CountTask(start, middle);
             CountTask rightTask = new CountTask(middle + 1, end);
-            // Ö´ĞĞ×ÓÈÎÎñ
+            // æ‰§è¡Œå­ä»»åŠ¡
             leftTask.fork();
             rightTask.fork();
-            // µÈ´ı×ÓÈÎÎñÖ´ĞĞÍê£¬²¢µÃµ½Æä½á¹û
+            // ç­‰å¾…å­ä»»åŠ¡æ‰§è¡Œå®Œï¼Œå¹¶å¾—åˆ°å…¶ç»“æœ
             int leftResult = leftTask.join();
             int rightResult = rightTask.join();
-            // ºÏ²¢×ÓÈÎÎñ
+            // åˆå¹¶å­ä»»åŠ¡
             sum = leftResult + rightResult;
         }
         return sum;
@@ -47,9 +47,9 @@ public class CountTask extends RecursiveTask<Integer> {
 
     public static void main(String[] args) {
         ForkJoinPool forkJoinPool = new ForkJoinPool();
-        // Éú³ÉÒ»¸ö¼ÆËãÈÎÎñ£¬¸ºÔğ¼ÆËã1+2+3+4
+        // ç”Ÿæˆä¸€ä¸ªè®¡ç®—ä»»åŠ¡ï¼Œè´Ÿè´£è®¡ç®—1+2+3+4
         CountTask task = new CountTask(1, 4);
-        // Ö´ĞĞÒ»¸öÈÎÎñ
+        // æ‰§è¡Œä¸€ä¸ªä»»åŠ¡
         Future<Integer> result = forkJoinPool.submit(task);
         try {
             System.out.println(result.get());
