@@ -1,4 +1,4 @@
-package JavaJSR133规范;
+package com.aw.JavaJSR133规范;
 
 public class Chapter01 {
     public static void main(String[] args) {
